@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('forest.jpg');
+            background-size: cover;
+        }
+        .img1{
+            width:120px;
+            height:120px;
+            position:absolute;
+            left:470px;
+            top:200px;
+        }
+        .c1{
+            font-size:40px;
+            float:left;
+            font-weight: bold;
+            color:white;
+        }
+        .c2{
+            font-size:40px;
+            float:right;
+            font-weight: bold;
+            color:white;
+        }
+    </style>
+    <script type="text/javascript">
+        var a=0,t=60;
+        function funscore(){
+              a++;
+              document.getElementById("div1").innerHTML="Score:"+a;  
+        }
+        function funtime(){
+            if(t==0)
+            {
+                alert("Game Over\nYour Score is "+a);
+                document.write("Game finished")
+                a=0;
+                t=60;
+                document.getElementById("div1").innerHTML="Score:"+a;
+                document.getElementById("div2").innerHTML="Time Left:"+t;
+            }
+            t--;
+            document.getElementById("div2").innerHTML="Time Left:"+t;
+        }
+        function movepic()
+        {
+            var c=Math.random()*1300;
+            var b=Math.random()*600;
+            document.getElementById("img1").style.left=c+"px";
+            document.getElementById("img1").style.top=b+"px";
+        }
+        setInterval("funtime()",1000);
+        setInterval("movepic()",1200);
+    </script>
+</head>
+<body>
+    <div id="div1" class="c1">Score:0</div>
+    <div id="div2" class="c2">Time Left:60</div>
+    <img id="img1" onclick="funscore()" src="bee1.gif" class="img1" />
+</body>
+</html>
